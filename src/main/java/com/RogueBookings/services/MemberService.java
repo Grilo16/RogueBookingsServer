@@ -47,11 +47,11 @@ public class MemberService {
 
     public MemberDTO addMemberToBusiness(Long userId, Long businessId) {
         Optional<User> user = userRepository.findById(userId);
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
             throw new OopsieRequestException("User no exist, try some other id");
         }
         Optional<Business> business = businessRepository.findById(businessId);
-        if (business.isEmpty()) {
+        if (!business.isPresent()) {
             throw new OopsieRequestException("Cant become a member of a non existant business can we?");
         }
         if (memberRepository.existsByBusinessAndUser(business.get(), user.get())){

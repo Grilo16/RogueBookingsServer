@@ -52,11 +52,11 @@ public class TeacherService {
 
     public TeacherDTO addTeacherToLesson(Teacher teacher, Long memberId, Long lessonId) {
         Optional<Lesson> lesson = lessonRepository.findById(lessonId);
-        if (lesson.isEmpty()) {
+        if (!lesson.isPresent()) {
             throw new OopsieRequestException("Lesson no exist, try some other id");
         }
         Optional<Member> member = memberRepository.findById(memberId);
-        if (member.isEmpty()) {
+        if (!member.isPresent()) {
             throw new OopsieRequestException("Cant teach a lesson on a business u aint a member of");
         }
         if (teacherRepository.existsByLessonAndMember(lesson.get(), member.get())){
@@ -81,7 +81,7 @@ public class TeacherService {
 
     public ResponseEntity<String> removeTeacherFromLessonByTeacherId(Long teacherId){
         Optional<Teacher> teacher = teacherRepository.findById(teacherId);
-        if (teacher.isEmpty()){
+        if (!teacher.isPresent()){
             throw new OopsieRequestException("What does not exist shall not be erased");
         }
         Member member = teacher.get().getMember();

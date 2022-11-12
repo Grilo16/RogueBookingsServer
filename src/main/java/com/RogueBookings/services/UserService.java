@@ -47,7 +47,7 @@ public class UserService {
     public UserDTO getUserById(Long userId){
         Optional<User> user = userRepository.findById(userId);
         UserDTO userDTO;
-        if (user.isEmpty()){
+        if (!user.isPresent()){
             throw new OopsieRequestException("user doesnt exist soz");
         }
         try {

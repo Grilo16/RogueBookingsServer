@@ -44,7 +44,7 @@ public class LessonService {
     public LessonDTO createNewLessonBusinessId(Long businessId, LessonDTO lessonDTO) {
         Lesson lesson = dtoConverter.DTOtoEntity(lessonDTO, lessonType);
         Optional<Business> business = businessRepository.findById(businessId);
-        if (business.isEmpty()){
+        if (!business.isPresent()){
             throw new OopsieRequestException("loool business donsnt exist, do try again tho");
         }
         Business selectedBusiness = business.get();

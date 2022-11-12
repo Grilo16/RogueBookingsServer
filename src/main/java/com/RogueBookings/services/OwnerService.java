@@ -45,11 +45,11 @@ public class OwnerService {
 
     public OwnerDTO addNewOwnerToBusiness(Long userId, Long businessId){
         Optional<User> user = userRepository.findById(userId);
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
             throw new OopsieRequestException("User no exist, try some other id");
         }
         Optional<Business> business = businessRepository.findById(businessId);
-        if (business.isEmpty()) {
+        if (!business.isPresent()) {
             throw new OopsieRequestException("Cant become an owner of a non existant business can we?");
         }
         if (ownerRepository.existsByBusinessAndOwner(business.get(), user.get())){

@@ -53,7 +53,7 @@ public class BusinessService {
     public BusinessDTO getBusinessById(Long businessId){
         Optional<Business> business = businessRepository.findById(businessId);
         BusinessDTO businessDTO;
-        if (business.isEmpty()){
+        if (!business.isPresent()){
             throw new OopsieRequestException("business doesnt exist soz");
         }
         try {
@@ -69,7 +69,7 @@ public class BusinessService {
     public BusinessDTO createNewBusinessByUserId(BusinessDTO businessDTO, Long userId) {
         Business business = dtoConverter.DTOtoEntity(businessDTO, businessType);
         Optional<User> user = userRepository.findById(userId);
-        if (user.isEmpty()){
+        if (!user.isPresent()){
             throw new OopsieRequestException("loool user donsnt exist, do try again tho");
         } else if (businessRepository.existsByNameIgnoreCase(business.getName())) {
             throw new OopsieRequestException("oooohh nono copycat, another business already has this name");

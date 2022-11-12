@@ -54,11 +54,11 @@ public class StudentService {
 
     public StudentDTO addStudentToLesson(Long memberId, Long lessonId) {
         Optional<Lesson> lesson = lessonRepository.findById(lessonId);
-        if (lesson.isEmpty()) {
+        if (!lesson.isPresent()) {
             throw new OopsieRequestException("Lesson no exist, try some other id");
         }
         Optional<Member> member = memberRepository.findById(memberId);
-        if (member.isEmpty()) {
+        if (!member.isPresent()) {
             throw new OopsieRequestException("Cant study in a lesson on a business u aint a member of");
         }
         if (studentRepository.existsByMemberAndLesson(member.get(), lesson.get())){
@@ -83,7 +83,7 @@ public class StudentService {
 
     public ResponseEntity<String> removeStudentFromLessonByStudentId(Long studentId){
         Optional<Student> student = studentRepository.findById(studentId);
-        if (student.isEmpty()){
+        if (!student.isPresent()){
             throw new OopsieRequestException("What does not exist shall not be erased");
         }
         Member member = student.get().getMember();
