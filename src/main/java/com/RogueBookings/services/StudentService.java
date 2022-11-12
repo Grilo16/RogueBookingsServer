@@ -1,10 +1,10 @@
 package com.RogueBookings.services;
 
 import com.RogueBookings.dataTransferObjects.StudentDTO;
-import RogueBookings.models.*;
+import com.RogueBookings.models.*;
 import com.RogueBookings.models.userLogs.LessonLog;
 import com.RogueBookings.oopsies.OopsieRequestException;
-import RogueBookings.repositories.*;
+import com.RogueBookings.repositories.*;
 import com.RogueBookings.utilities.DTOConverter;
 import com.RogueBookings.models.Lesson;
 import com.RogueBookings.models.Member;

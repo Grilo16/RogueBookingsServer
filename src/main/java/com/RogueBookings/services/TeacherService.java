@@ -4,7 +4,7 @@ import com.RogueBookings.dataTransferObjects.TeacherDTO;
 import com.RogueBookings.models.Lesson;
 import com.RogueBookings.models.Member;
 import com.RogueBookings.oopsies.OopsieRequestException;
-import RogueBookings.models.*;
+import com.RogueBookings.models.*;
 import com.RogueBookings.models.userLogs.LessonLog;
 import com.RogueBookings.repositories.LessonLogRepository;
 import com.RogueBookings.repositories.LessonRepository;

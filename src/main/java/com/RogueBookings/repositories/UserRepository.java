@@ -1,7 +1,7 @@
 package com.RogueBookings.repositories;
 
-import RogueBookings.models.Member;
-import RogueBookings.models.User;
+import com.RogueBookings.models.Member;
+import com.RogueBookings.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
 
