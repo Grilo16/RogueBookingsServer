@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(value = "http://localhost:3000/")
+@CrossOrigin(value = "https://grilo16.github.io/")
 @RequestMapping(path = "students")
+
 public class StudentController {
 
     StudentService studentService;
