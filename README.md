@@ -1,7 +1,7 @@
 # RogueBookingsServer
 ### This is a backend server coded in java and spring. 
 
-![image](https://user-images.githubusercontent.com/98457056/203157214-2432020c-04cc-4abb-a218-ecf58bcbb285.png)
+![image](https://user-images.githubusercontent.com/98457056/203157567-fb093bd6-e6bf-4433-b77f-f9be54907589.png)
 
 
 It uses postgress and handles a database of users and businesses.
